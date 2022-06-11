@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  example_api:
+    build: .
+    volumes:
+      - ".:/code"
+      - "/code/example_api.egg-info"
+    restart: on-failure
+    ports:
+      - "9080:9080"
+    environment:
+      - EXAMPLE_API_CONFIG=/code/sample-config.toml
