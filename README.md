@@ -1,8 +1,8 @@
 ## Example API
 
-This is an example python aiohttp service with a gunicorn server.
-Configuration is placed inside of the app accessible from the session
-object per request.
+Backend: Aiohttp python service with a gunicorn server.
+
+Frontend: react vite web app with material-ui
 
 ## Development
 
@@ -10,10 +10,11 @@ object per request.
 docker-compose up
 ```
 
-It should be available localhost:9080
+The webui will appear at http://localhost:8080
 
-## Test
+The rest api is available at http://localhost:8080/api
 
-```
-docker build . -t example_api && docker run --entrypoint python example_api -m pytest -vv
-```
+The api consists of:
+
+- /physicians Returns all physician objects
+- /physicians/appointments/{id} Returns appointments for the given physician id

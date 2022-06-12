@@ -4,9 +4,22 @@ services:
     build: .
     volumes:
       - ".:/code"
-      - "/code/example_api.egg-info"
     restart: on-failure
     ports:
       - "9080:9080"
     environment:
       - EXAMPLE_API_CONFIG=/code/sample-config.toml
+
+  webui:
+    build:
+      context: webui
+    restart: on-failure
+    ports:
+      - "3000:3000"
+
+  nginx:
+    image: nginx
+    volumes:
+      - "./nginx/conf.d:/etc/nginx/conf.d:ro"
+    ports:
+      - "8080:80"

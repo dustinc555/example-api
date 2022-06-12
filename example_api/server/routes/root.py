@@ -12,11 +12,3 @@ async def ping(request):
     response = web.Response(text="pong")
 
     return response
-
-@routes.get('/')
-@routes.post('/')
-async def root(request):
-    
-    response = web.Response(text=open('/code/public/index.html').read(), content_type='text/html')
-
-    return response
