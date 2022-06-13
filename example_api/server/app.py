@@ -5,6 +5,7 @@ import os
 from .routes import routes
 from example_api import logging, project_root
 from example_api.config import Config
+from example_api.db.static.physicians import StaticDB
 
 from example_api.util import from_json
 
@@ -25,8 +26,7 @@ async def get_app():
 
     finally:
         app['config'] = config
-
-    logger.debug('config logging line')
+        app['static_db'] = StaticDB(config.get('db.path', '/code/database'))
 
     # Loading route(s)
     app.add_routes(routes)
