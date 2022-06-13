@@ -14,9 +14,6 @@ export default function Calendar(props) {
     { field: "kind", headerName: "Kind", width: 130 },
   ];
 
-  console.log("i got");
-  console.log(props);
-
   let rows = props.physician.appointments ?? [];
   let name = props.physician.name ?? "";
   let email = props.physician.email ?? "";
