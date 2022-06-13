@@ -1,7 +1,7 @@
 import { DataGrid } from "@mui/x-data-grid";
 import Box from "@mui/material/Box";
 
-export default function Calendar(props) {
+export default function Calendar({ appointments = [], name = "", email = "" }) {
   const columns = [
     { field: "id", headerName: "#", width: 50 },
     { field: "name", headerName: "Name", width: 130 },
@@ -14,16 +14,10 @@ export default function Calendar(props) {
     { field: "kind", headerName: "Kind", width: 130 },
   ];
 
-  let rows = props.physician.appointments ?? [];
-  let name = props.physician.name ?? "";
-  let email = props.physician.email ?? "";
-
-  rows = rows.map((r) => {
-    return {
-      ...r,
-      id: r._id,
-    };
-  });
+  const rowsprop = appointments.map((r) => ({
+    ...r,
+    id: r._id,
+  }));
 
   return (
     <Box sx={{ p: 2, width: "100%" }}>
@@ -34,7 +28,7 @@ export default function Calendar(props) {
         pageSize={6}
         emptyRowsWhenPaging={false}
         pageSizeOptions={[6, 12, 20, 50]}
-        rows={rows}
+        rows={rowsprop}
         columns={columns}
       />
     </Box>

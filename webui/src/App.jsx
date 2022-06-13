@@ -10,8 +10,6 @@ export default function App() {
   const { physicians, isLoading } = usePhysicians();
   const [selectedIndex, setSelectedIndex] = useState(null);
 
-  console.log(selectedIndex);
-
   if (!isLoading) {
     return (
       <Box sx={{ display: "flex", flexDirection: "row", p: 1, m: 1 }}>
@@ -20,7 +18,7 @@ export default function App() {
           selectedIndex={selectedIndex}
           setSelectedIndex={setSelectedIndex}
         />
-        <Calendar physician={physicians[selectedIndex] ?? {}} />
+        <Calendar {...physicians[selectedIndex]} />
       </Box>
     );
   } else return <h1>No Data</h1>;
