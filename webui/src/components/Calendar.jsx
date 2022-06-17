@@ -1,6 +1,8 @@
 import { DataGrid } from "@mui/x-data-grid";
 import Box from "@mui/material/Box";
 
+import Typography from "@mui/material/Typography";
+
 export default function Calendar({ appointments = [], name = "", email = "" }) {
   const columns = [
     { field: "id", headerName: "#", width: 50 },
@@ -20,9 +22,9 @@ export default function Calendar({ appointments = [], name = "", email = "" }) {
   }));
 
   return (
-    <Box sx={{ p: 2, width: "100%" }}>
-      <h1>{name}</h1>
-      <h4>{email}</h4>
+    <Box sx={{ pl: 2, width: "100%" }}>
+      <Typography variant="h4">{name}</Typography>
+      <Typography variant="h6">{email}</Typography>
       <DataGrid
         paging={true}
         pageSize={6}
@@ -30,6 +32,11 @@ export default function Calendar({ appointments = [], name = "", email = "" }) {
         pageSizeOptions={[6, 12, 20, 50]}
         rows={rowsprop}
         columns={columns}
+        initialState={{
+          sorting: {
+            sortModel: [{ field: "time", sort: "asc" }],
+          },
+        }}
       />
     </Box>
   );
