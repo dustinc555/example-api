@@ -18,14 +18,18 @@ RUN apk add --no-cache \
 
 # layer for changing modules (should not change frequently)
 WORKDIR /code
+
 COPY poetry.lock pyproject.toml ./
 RUN poetry config virtualenvs.create false \
  && poetry install --no-interaction
 
 # src layer (changes frequently)
 COPY . .
+
 RUN poetry config virtualenvs.create false \
  && poetry install --no-interaction
 
 EXPOSE 9080/tcp
-ENTRYPOINT example_api --reload --config-file sample_config.toml
+
+# reset pristine db every run
+ENTRYPOINT cp /code/database/pristine/* /code/database && example_api --reload --config-file sample_config.toml

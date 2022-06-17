@@ -1,127 +1,145 @@
 [
   {
     "_id": 0,
-    "name": "Kerry Gilbert",
-    "email": "kerrygilbert@brainquil.com",
     "appointments": [
       {
         "_id": 0,
-        "time": "05:45:10",
+        "kind": "Howe",
         "name": "Herring Stanton",
-        "kind": "Howe"
+        "time": "05:45:10"
       },
       {
         "_id": 1,
-        "time": "04:07:59",
+        "kind": "Castillo",
         "name": "Bernice Foley",
-        "kind": "Castillo"
+        "time": "04:07:59"
       },
       {
         "_id": 2,
-        "time": "04:34:04",
+        "kind": "Steele",
         "name": "Kellie Cotton",
-        "kind": "Steele"
+        "time": "04:34:04"
+      },
+      {
+        "_id": 5,
+        "kind": "bar",
+        "name": "foo",
+        "time": "00:00:00"
+      },
+      {
+        "_id": 5,
+        "kind": "bar",
+        "name": "foo",
+        "time": "00:00:00"
+      },
+      {
+        "_id": 8,
+        "kind": "bar",
+        "name": "foo",
+        "time": "01:00:00"
       }
-    ]
+    ],
+    "email": "kerrygilbert@brainquil.com",
+    "name": "Kerry Gilbert"
   },
   {
     "_id": 1,
-    "name": "Dolly Copeland",
-    "email": "dollycopeland@brainquil.com",
     "appointments": [
       {
         "_id": 0,
-        "time": "11:10:30",
+        "kind": "Knapp",
         "name": "Hensley Madden",
-        "kind": "Knapp"
+        "time": "11:10:30"
       },
       {
         "_id": 1,
-        "time": "06:18:33",
+        "kind": "Sellers",
         "name": "Kramer Osborn",
-        "kind": "Sellers"
+        "time": "06:18:33"
       },
       {
         "_id": 2,
-        "time": "06:57:22",
+        "kind": "Vaughan",
         "name": "Isabel Irwin",
-        "kind": "Vaughan"
+        "time": "06:57:22"
       }
-    ]
+    ],
+    "email": "dollycopeland@brainquil.com",
+    "name": "Dolly Copeland"
   },
   {
     "_id": 2,
-    "name": "Fleming Alvarez",
-    "email": "flemingalvarez@brainquil.com",
     "appointments": [
       {
         "_id": 0,
-        "time": "04:41:10",
+        "kind": "Buckner",
         "name": "Abigail Washington",
-        "kind": "Buckner"
+        "time": "04:41:10"
       },
       {
         "_id": 1,
-        "time": "01:54:10",
+        "kind": "Evans",
         "name": "Lenore Sullivan",
-        "kind": "Evans"
+        "time": "01:54:10"
       },
       {
         "_id": 2,
-        "time": "10:03:29",
+        "kind": "Mercado",
         "name": "Miles Bates",
-        "kind": "Mercado"
+        "time": "10:03:29"
       }
-    ]
+    ],
+    "email": "flemingalvarez@brainquil.com",
+    "name": "Fleming Alvarez"
   },
   {
     "_id": 3,
-    "name": "Amalia Bright",
-    "email": "amaliabright@brainquil.com",
     "appointments": [
       {
         "_id": 0,
-        "time": "01:13:33",
+        "kind": "Dalton",
         "name": "Daniel Good",
-        "kind": "Dalton"
+        "time": "01:13:33"
       },
       {
         "_id": 1,
-        "time": "10:56:32",
+        "kind": "Valdez",
         "name": "Moreno Whitehead",
-        "kind": "Valdez"
+        "time": "10:56:32"
       },
       {
         "_id": 2,
-        "time": "01:11:10",
+        "kind": "Hancock",
         "name": "Madden Bowen",
-        "kind": "Hancock"
+        "time": "01:11:10"
       }
-    ]
+    ],
+    "email": "amaliabright@brainquil.com",
+    "name": "Amalia Bright"
   },
   {
     "_id": 4,
-    "name": "Aisha Obrien",
-    "email": "aishaobrien@brainquil.com",
     "appointments": [
       {
         "_id": 0,
-        "time": "05:10:51",
+        "kind": "Turner",
         "name": "Charity Gibbs",
-        "kind": "Turner"
+        "time": "05:10:51"
       },
       {
         "_id": 1,
-        "time": "07:20:13",
+        "kind": "Valenzuela",
         "name": "Hazel Rosa",
-        "kind": "Valenzuela"
+        "time": "07:20:13"
       },
       {
         "_id": 2,
-        "time": "12:28:48",
+        "kind": "Holden",
         "name": "Brandi Stark",
-        "kind": "Holden"
+        "time": "12:28:48"
       }
-    ]
+    ],
+    "email": "aishaobrien@brainquil.com",
+    "name": "Aisha Obrien"
   }
 ]
