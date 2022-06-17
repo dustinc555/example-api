@@ -5,9 +5,13 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Button from "@mui/material/Button";
 
-export default function PhysiciansList(props) {
+export default function PhysiciansList({
+  selectedIndex,
+  setSelectedIndex,
+  physicians = [],
+}) {
   const handleListItemClick = (event, index) => {
-    props.setSelectedIndex(index);
+    setSelectedIndex(index);
   };
 
   return (
@@ -15,10 +19,10 @@ export default function PhysiciansList(props) {
       <h1 style={{ color: "#397ADD" }}>notable</h1>
       <h3>PHYSICIANS</h3>
       <List component="nav" aria-label="secondary mailbox folder">
-        {props.physicians.map((p, index) => (
+        {physicians.map((p, index) => (
           <ListItemButton
             key={index}
-            selected={props.selectedIndex === index}
+            selected={selectedIndex === index}
             onClick={(event) => handleListItemClick(event, index)}
           >
             <ListItemText primary={p.name} />
