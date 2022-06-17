@@ -21,5 +21,5 @@ export default function App() {
         <Calendar {...physicians[selectedIndex]} />
       </Box>
     );
-  } else return <h1>No Data</h1>;
+  } else return <h1>Loading...</h1>;
 }
