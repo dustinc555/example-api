@@ -17,4 +17,5 @@ The rest api is available at http://localhost:8080/api
 The api consists of:
 
 - /physicians Returns all physician objects
-- /physicians/appointments/{id} Returns appointments for the given physician id
+- /physicians/{id}/appointments Returns appointments for the given physician id
+- /physicians/{id}/appointments/add Accepts an array of appointments and generates keys for them
