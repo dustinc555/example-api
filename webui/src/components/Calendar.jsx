@@ -1,9 +1,14 @@
 import { DataGrid } from "@mui/x-data-grid";
-import Box from "@mui/material/Box";
+import { Typography, Stack, Box } from "@mui/material";
 
-import Typography from "@mui/material/Typography";
+import AddComponentForm from "./AddAppointmentForm";
 
-export default function Calendar({ appointments = [], name = "", email = "" }) {
+export default function Calendar({
+  appointments = [],
+  name = "",
+  email = "",
+  _id = "",
+}) {
   const columns = [
     { field: "id", headerName: "#", width: 50 },
     { field: "name", headerName: "Name", width: 130 },
@@ -22,12 +27,12 @@ export default function Calendar({ appointments = [], name = "", email = "" }) {
   }));
 
   return (
-    <Box sx={{ pl: 2, width: "100%" }}>
+    <Stack spacing={2} sx={{ pl: 2, width: "100%" }}>
       <Typography variant="h4">{name}</Typography>
       <Typography variant="h6">{email}</Typography>
       <DataGrid
         paging={true}
-        pageSize={6}
+        sx={{ minHeight: 300 }}
         emptyRowsWhenPaging={false}
         pageSizeOptions={[6, 12, 20, 50]}
         rows={rowsprop}
@@ -38,6 +43,11 @@ export default function Calendar({ appointments = [], name = "", email = "" }) {
           },
         }}
       />
-    </Box>
+      {_id !== "" ? (
+        <Box sx={{ display: "flex", flexDirection: "row" }}>
+          <AddComponentForm physician_id={_id} />
+        </Box>
+      ) : null}
+    </Stack>
   );
 }
