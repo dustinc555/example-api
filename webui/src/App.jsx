@@ -1,5 +1,15 @@
 import Box from "@mui/material/Box";
 
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+let theme = createTheme({
+  palette: {
+    primary: {
+      main: "#337FDD",
+    },
+  },
+});
+
 import { useState } from "react";
 import { usePhysicians } from "./services/physicians";
 
@@ -12,14 +22,16 @@ export default function App() {
 
   if (!isLoading) {
     return (
-      <Box sx={{ display: "flex", flexDirection: "row", p: 1, m: 1 }}>
-        <PhysiciansList
-          physicians={physicians}
-          selectedIndex={selectedIndex}
-          setSelectedIndex={setSelectedIndex}
-        />
-        <Calendar {...physicians[selectedIndex]} />
-      </Box>
+      <ThemeProvider theme={theme}>
+        <Box sx={{ display: "flex", flexDirection: "row", p: 1, m: 1 }}>
+          <PhysiciansList
+            physicians={physicians}
+            selectedIndex={selectedIndex}
+            setSelectedIndex={setSelectedIndex}
+          />
+          <Calendar {...physicians[selectedIndex]} />
+        </Box>
+      </ThemeProvider>
     );
   } else return <h1>Loading...</h1>;
 }
