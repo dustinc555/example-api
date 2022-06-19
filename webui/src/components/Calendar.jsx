@@ -19,8 +19,14 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.common.white,
   },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  "&:nth-of-type(even)": {
+    backgroundColor: theme.palette.action.hover,
+  },
+  "& .MuiTableCell-root": {
+    borderLeft: "1px solid rgba(224, 224, 224, 1)",
   },
 }));
 
@@ -33,7 +39,7 @@ export default function Calendar({
   _id = "",
 }) {
   const rowsprop = appointments.sort(
-    (a, b) => new Date(b.time) - new Date(a.time)
+    (a, b) => new Date(a.time) - new Date(b.time)
   );
 
   return (
@@ -44,23 +50,20 @@ export default function Calendar({
         <Table stickyHeader>
           <TableHead>
             <TableRow>
-              <StyledTableCell align="right">#</StyledTableCell>
-              <StyledTableCell align="right">Name</StyledTableCell>
-              <StyledTableCell align="right">Time</StyledTableCell>
-              <StyledTableCell align="right">Kind</StyledTableCell>
+              <StyledTableCell align="left">#</StyledTableCell>
+              <StyledTableCell align="left">Name</StyledTableCell>
+              <StyledTableCell align="left">Time</StyledTableCell>
+              <StyledTableCell align="left">Kind</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rowsprop.map((row) => (
-              <TableRow
-                key={row._id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell align="right">{row._id}</TableCell>
-                <TableCell align="right">{row.name}</TableCell>
-                <TableCell align="right">{row.time}</TableCell>
-                <TableCell align="right">{row.kind}</TableCell>
-              </TableRow>
+              <StyledTableRow key={row._id}>
+                <TableCell align="left">{row._id}</TableCell>
+                <TableCell align="left">{row.name}</TableCell>
+                <TableCell align="left">{row.time}</TableCell>
+                <TableCell align="left">{row.kind}</TableCell>
+              </StyledTableRow>
             ))}
           </TableBody>
         </Table>

@@ -17,7 +17,7 @@ function usePhysicians() {
 }
 
 async function addAppointments(physician_id, appointments = []) {
-  console.log(`posting to ${physician_id}`);
+  console.log(`posting for physician with id: ${physician_id}`);
   console.log(appointments);
 
   await fetch(`${BaseUrl}/${physician_id}/appointments/add`, {
