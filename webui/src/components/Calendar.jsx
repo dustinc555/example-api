@@ -15,7 +15,7 @@ export default function Calendar({
     {
       field: "time",
       headerName: "Time",
-      width: 130,
+      width: 160,
       type: "dateTime",
     },
     { field: "kind", headerName: "Kind", width: 130 },
