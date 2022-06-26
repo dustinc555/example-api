@@ -1,5 +1,5 @@
 import React from "react";
-import { useFormik } from "formik";
+import { useFormik, FormikProps } from "formik";
 import {
   TextField,
   FormControl,
@@ -12,8 +12,19 @@ import {
 
 import { addAppointments } from "@/services/physicians";
 
-const validate = (values) => {
-  const errors = {};
+interface FormValues {
+  time: string;
+  kind: string;
+  name: string;
+}
+
+interface FormErrors {
+  name?: string;
+  time?: string;
+}
+
+const validate = (values: FormValues) => {
+  const errors: FormErrors = {};
   if (!values.name) {
     errors.name = "Required";
   }
@@ -25,7 +36,11 @@ const validate = (values) => {
   return errors;
 };
 
-export default function AddAppointmentForm({ physician_id }) {
+interface Props {
+  physician_id: string;
+}
+
+export default function AddAppointmentForm({ physician_id }: Props) {
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -33,12 +48,19 @@ export default function AddAppointmentForm({ physician_id }) {
       kind: "Follow-up",
     },
     validate,
-    onSubmit: (values) => addAppointments(physician_id, [values]),
+    onSubmit: async (values) => {
+      try {
+        await addAppointments(physician_id, [values]);
+        alert("success");
+      } catch (error) {
+        alert(`Failed to schedule appointment: ${error}`);
+      }
+    },
   });
   return (
     <Paper elevation={3} style={{ padding: 4 }}>
       <form onSubmit={formik.handleSubmit}>
-        <Typography sx={{ mb: 2 }} variant="h6">
+        <Typography align="center" sx={{ mb: 2 }} variant="h6">
           Create New Appointment
         </Typography>
         <FormControl>

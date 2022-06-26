@@ -13,6 +13,8 @@ import {
 } from "@mui/material";
 
 import { styled } from "@mui/material/styles";
+import AddComponentForm from "./AddAppointmentForm";
+import { Appointment } from "@/services/physicians";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -30,16 +32,22 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-import AddComponentForm from "./AddAppointmentForm";
+interface CalendarProps {
+  appointments: Appointment[];
+  name: string;
+  email: string;
+  _id: string;
+}
 
 export default function Calendar({
   appointments = [],
   name = "",
   email = "",
   _id = "",
-}) {
+}: CalendarProps) {
   const rowsprop = appointments.sort(
-    (a, b) => new Date(a.time) - new Date(b.time)
+    (a: Appointment, b: Appointment) =>
+      new Date(a.time).valueOf() - new Date(b.time).valueOf()
   );
 
   return (

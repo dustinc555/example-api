@@ -11,14 +11,14 @@ const theme = createTheme({
 });
 
 import { useState } from "react";
-import { usePhysicians } from "./services/physicians";
+import { usePhysicians, Physician } from "./services/physicians";
 
 import PhysiciansList from "./components/PhysiciansList";
 import Calendar from "./components/Calendar";
 
 export default function App() {
   const { physicians, isLoading } = usePhysicians();
-  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   if (!isLoading) {
     return (

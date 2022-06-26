@@ -7,12 +7,20 @@ import Button from "@mui/material/Button";
 
 import { Typography } from "@mui/material";
 
+import { Physician } from "@/services/physicians";
+
+interface Props {
+  selectedIndex: number;
+  setSelectedIndex: React.Dispatch<React.SetStateAction<number>>;
+  physicians: Physician[];
+}
+
 export default function PhysiciansList({
   selectedIndex,
   setSelectedIndex,
   physicians = [],
-}) {
-  const handleListItemClick = (index) => {
+}: Props) {
+  const handleListItemClick = (index: number) => {
     setSelectedIndex(index);
   };
 
