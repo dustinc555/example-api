@@ -32,7 +32,7 @@ export default function PhysiciansList({
           variant="h4"
           color="primary"
         >
-          notable
+          Example
         </Typography>
       </Box>
 
